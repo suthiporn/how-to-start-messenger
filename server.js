@@ -32,17 +32,17 @@ app.post('/webhook/', function (req, res) {
       }, function(error, response, body) {
         try {
           var condition = body.main;
-          sendTextMessage(sender, "Today is " + condition.temp + "Celsius in " + location);
+          sendTextMessage(sender, "วันนี้อุณหภูมิ " + condition.temp + " °C ในพื้นที่ " + location);
         } catch(err) {
           console.error('error caught', err);
-          sendTextMessage(sender, "There was an error.");
+          sendTextMessage(sender, "ไม่พบสถานที่นี้");
         }
       })
       if (text === 'Generic') {
         sendGenericMessage(sender)
         continue
       }
-      sendTextMessage(sender, 'มาเช็คสภาพอากาศกันเถอะ' + text.substring(0, 200))
+      sendTextMessage(sender, 'สวัสดีจ้าา คุณต้องการจะเช็คสภาพอากาศไหม!!' + text.substring(0, 200))
     }
     if (event.postback) {
       let text = JSON.stringify(event.postback)
