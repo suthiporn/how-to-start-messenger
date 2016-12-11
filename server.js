@@ -38,6 +38,7 @@ app.post('/webhook/', function (req, res) {
           sendTextMessage(sender, "ไม่พบสถานที่นี้ (กรุณาใส่สถานที่ให้ถูกต้อง)");
         }
       })
+
       if (text === 'Generic') {
         sendGenericMessage(sender)
         continue
